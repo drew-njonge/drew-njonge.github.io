@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {color: #00FF00}
+.style2 {color: #000000}
+.style3 {color: #FF0000}
+.style4 {font-size: x-large}
+-->
+</style>
+</head>
+<?php
+$value=$_GET['id']; 
+?>
+<body>
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pay Form</title>
+	<script type="text/javascript">
+			function  cost(){
+				document.getElementById('furniture').value = "Sofa";
+				document.getElementById('amount').value = "230000";
+				
+			}
+	</script>
+	
+    <style type="text/css">
+<!--
+.style1 {color: #00FF00}
+-->
+    </style>
+</head>
+<body onLoad="cost()">
+	
+	<p>&nbsp;</p>
+	<p><span class="style1"><img src="assets/images/Home of the best furniture.png" alt="logo" width="213" height="122"></span></p>
+	<p><span class="style4 style3"></span> <img src="assets/img/mpesa.jpg" alt="mpesa" width="225" height="158"></p>
+	<p>&nbsp;</p>
+	<h1 class="style1 style1 style1">Payment Details</h1>
+	
+	<form method="post" action="paycons.html">
+		<table>
+		<tr>
+				<td><label>Name</label></td>
+				<td>:</td>
+				<td>
+					<input type="textbox" id="name" name="name" value="<?php echo $value; ?>">
+				</td>
+		  </tr>
+			<tr>
+				<td><label>Furniture</label></td>
+				<td>:</td>
+				<td>
+					<input type="textbox" id="furniture" name="furniture" readonly >
+				</td>
+			</tr>
+			<tr>
+				<td>Price Ksh</td>
+				<td>:</td>
+				<td><input type="text" id="amount" name="amount" readonly></td>
+			</tr>
+			<tr>
+				<td>Paybill Number</td>
+				<td>:</td>
+				<td>
+				  <input type="integer" name="card">
+				</td>
+			</tr>
+			
+		</table>
+		<input type="submit" value="Buy" name="submit">
+	</form>
+
+</body>
+</html>
+</body>
+</html>

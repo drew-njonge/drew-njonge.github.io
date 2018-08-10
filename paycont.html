@@ -1,0 +1,78 @@
+<html>
+<style type="text/css">
+<!--
+body {background-color:#008000;
+}
+.style2 {
+	font-size: xx-large;
+	color: #FF0000;
+}
+
+-->
+</style>
+<script>
+function myFunction() {
+    window.print();
+}
+</script>
+<body>
+<h1><img src="assets/images/Home of the best furniture.png" alt="logo" width="213" height="122"></h1>
+<p class="style2">Transaction Details</p>
+</body>
+</html>
+<?php
+
+define('DB_NAME', 'furniture');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+
+$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+
+if (!$link) {
+	die('Could not connect: ' . mysql_error());
+	}
+
+$db_selected = mysql_select_db(DB_NAME, $link);
+
+if (!$db_selected) {
+	die('Cant use ' . DB_NAME . ' : ' . mysql_error());
+	}
+	
+echo 'Purchase Successful!!! <br>';
+ 	if (isset($_POST['name'])){
+		$value = $_POST['name'];}
+		echo "<br>Name: ".$value;
+	if (isset($_POST['furniture'])){
+		$furniture = $_POST['furniture'];}
+		echo "<br>Furniture Model: ".$furniture;		
+	if (isset($_POST['amount'])){
+		$price = $_POST['amount'];}
+		echo "<br>Amount paid Ksh: ".$price;
+	if (isset($_POST['card'])){
+		$card = $_POST['card'];}
+		echo "<br>Paybill Number: ".$card;	
+	
+ 
+$sql = "INSERT INTO tvstand(name,furniture,amount,card) VALUES ('$value','$furniture','$price','$card')";
+
+if (!mysql_query($sql)) {
+	die('Error: ' . mysql_error());
+	}
+else{
+		echo '<script language="javascript">';
+        echo 'alert("Transcation Successfully")';
+        echo 'window.Location("thankyou.html")';
+        echo '</script>';
+	}
+	mysql_close();
+	
+	
+?>
+<br>
+<br>
+<br>
+ <button onClick="myFunction()">Print</button>
+<br/>
+<br/>
+<br/>

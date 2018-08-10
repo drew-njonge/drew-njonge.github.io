@@ -1,0 +1,68 @@
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pay Form</title>
+	<script type="text/javascript">
+			function  cost(){
+				document.getElementById('furniture').value = "Tv Stand";
+				document.getElementById('amount').value = "65000";
+				
+			}
+	</script>
+	<?php
+$value=$_GET['id']; 
+?>
+    <style type="text/css">
+<!--
+.style1 {color: #00FF00}
+.style2 {color: #000000}
+.style3 {color: #FF0000}
+.style4 {font-size: x-large}
+-->
+    </style>
+</head>
+<body onLoad="cost()">
+	
+	<p>&nbsp;</p>
+	<p><img src="assets/images/Home of the best furniture.png" alt="logo" width="213" height="122"></p>
+	<p><span class="style4 style3"></span> <img src="assets/img/mpesa.jpg" alt="mpesa" width="225" height="158"></p>
+	<p>&nbsp;</p>
+	<h1 class="style1 style1">Payment Details</h1>
+	
+	<form method="post" action="paycont.html">
+		<table>
+		<tr>
+				<td><label>Name</label></td>
+				<td>:</td>
+				<td>
+					<input type="textbox" id="name" name="name" value="<?php echo $value; ?>">
+				</td>
+		  </tr>
+			<tr>
+				<td><label>Furniture</label></td>
+				<td>:</td>
+				<td>
+					<input type="textbox" id="furniture" name="furniture" readonly >
+				</td>
+			</tr>
+			<tr>
+				<td>Price Ksh</td>
+				<td>:</td>
+				<td><input type="text" id="amount" name="amount" readonly></td>
+			</tr>
+			<tr>
+				<td>Paybill Number</td>
+				<td>:</td>
+				<td>
+				  <input type="integer" name="card">
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Buy" name="submit">
+	</form>
+
+</body>
+</html>
